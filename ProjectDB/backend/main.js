@@ -3,6 +3,11 @@ var express = require("express");
 var app = express();
 var http = require('http');
 
+var tire = require('./routes/tire');
+var company = require('./routes/company');
+var magwheel = require('./routes/magwheel');
+var inventory = require('./routes/inventory');
+
 // const companyTable = "Company";
 // const tireTable = "Tire";
 // const magwheelTable = "Magwheel";
@@ -26,7 +31,6 @@ function connectToDatabase(querySentence,res) {
             res.send(result);
         })
     })
-    connect.end();
 };
 
 http.createServer(function (req, res) {
@@ -36,7 +40,10 @@ http.createServer(function (req, res) {
 
 app.listen(3000);
 
-
+app.use('/', tire);
+app.use('/', company);
+app.use('/', inventory);
+app.use('/', magwheel);
 
 // =============== This is path =============== //
 // =============== This is path =============== //
@@ -83,7 +90,3 @@ app.listen(3000);
 //     connectToDatabase(querySentence, res);
 // });
 
-app.get('/:type', function (req, res) {
-    let querySentence = `SELECT * FROM ${req.params.type}`
-    connectToDatabase(querySentence, res);
-})
