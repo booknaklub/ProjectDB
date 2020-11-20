@@ -3,25 +3,30 @@ var express = require("express");
 var app = express();
 var http = require('http');
 
-const tableName = "Company";
+// const companyTable = "Company";
+// const tireTable = "Tire";
+// const magwheelTable = "Magwheel";
+// const inventoryTable = "Table";
 
 var connect = mysql.createConnection(({
     host: "localhost",
-    database: "TireWheel",
+    database: "mydatabase",
     user: "root",
-    password: "12345678"
+    password: "123456",
+    port: 4500
 }));
 
 function connectToDatabase(querySentence,res) {
     connect.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
-        connect.query(querySentence, function (err, result) {
+        connect.query(querySentence, function(err, result) {
             if (err) throw err;
             console.log(("Result: " + JSON.stringify(result)));
             res.send(result);
         })
     })
+    connect.end();
 };
 
 http.createServer(function (req, res) {
@@ -58,14 +63,27 @@ app.listen(3000);
 //     return str.join("&");
 // }
 
-app.get('/showAll', function (req, res) {
-    let querySentence = `SELECT * FROM ${tableName}`
-    connectToDatabase(querySentence,res);
+// app.get('/company', function (req, res) {
+//     let querySentence = `SELECT * FROM ${companyTable}`
+//     connectToDatabase(querySentence, res);
+// });
 
-});
+// app.get('/tire', function (req, res) {
+//     let querySentence = `SELECT * FROM ${tireTable}`
+//     connectToDatabase(querySentence, res);
+// });
 
-app.post('/name?=:name', function(req, res) {
-    let querySentence = `INSERT INTO ${tableName} VALUES('3', ${name}, '5555555555')`
+// app.get('/magwheel', function (req, res) {
+//     let querySentence = `SELECT * FROM ${magwheelTable}`
+//     connectToDatabase(querySentence, res);
+// });
+
+// app.get('/inventory', function (req, res) {
+//     let querySentence = `SELECT * FROM ${inventoryTable}`
+//     connectToDatabase(querySentence, res);
+// });
+
+app.get('/:type', function (req, res) {
+    let querySentence = `SELECT * FROM ${req.params.type}`
     connectToDatabase(querySentence, res);
 })
-
