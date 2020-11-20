@@ -1,0 +1,13 @@
+สำหรับคนที่เอาไปใช้ให้ไปเช็คดูไฟล์ js ในโฟลเดอร์ route ตรงบรรทัด
+
+var connect = mysql.createConnection(({
+    host: "localhost",
+    database: "mydatabase",
+    user: "root",
+    password: "123456",
+    port: 4500
+}));
+
+ให้แก้ไขดังนี้
+1. ชื่อ database ตรงกับชื่อที่ตั้งไว้รึเปล่า ถ้าไม่ตรงให้เปลี่ยน
+2. ให้ลบ port ออก จะเป็นการเลือก port: 3306 ที่เป็น default 
