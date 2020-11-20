@@ -22,8 +22,8 @@ function connectToDatabase(querySentence,res) {
     })
 };
 
-router.get('/inventory', function (req, res) {
-    let querySentence = `SELECT * FROM inventory`
+router.get('/sell', function (req, res) {
+    let querySentence = `SELECT * FROM sell`
     connectToDatabase(querySentence, res);
 });
 

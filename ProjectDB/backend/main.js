@@ -6,7 +6,7 @@ var http = require('http');
 var tire = require('./routes/tire');
 var company = require('./routes/company');
 var magwheel = require('./routes/magwheel');
-var inventory = require('./routes/inventory');
+var inventory = require('./routes/branch');
 
 // const companyTable = "Company";
 // const tireTable = "Tire";
