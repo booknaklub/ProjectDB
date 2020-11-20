@@ -22,7 +22,7 @@ function connectToDatabase(querySentence,res) {
     })
 };
 
-router.get('/inventory', function (req, res) {
+router.get('/branch', function (req, res) {
     let querySentence = `SELECT * FROM branch`
     connectToDatabase(querySentence, res);
 });
