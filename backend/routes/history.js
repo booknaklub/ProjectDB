@@ -2,7 +2,7 @@ var mysql = require("mysql");
 var express = require("express");
 var router = express.Router();
 
-var connect = mysql.createConnection(({
+var connect = mysql.createPool(({
     host: "localhost",
     database: "TireWheel",
     user: "root",
@@ -11,13 +11,14 @@ var connect = mysql.createConnection(({
 }));
 
 function connectToDatabase(querySentence,res) {
-    connect.connect(function(err) {
+    connect.getConnection(function(err,connection) {
         if (err) throw err;
         console.log("Connected!");
-        connect.query(querySentence, function(err, result) {
+        connection.query(querySentence, function(err, result) {
             if (err) throw err;
             console.log(("Result: " + JSON.stringify(result)));
-            res.send(result);
+            res.json(result);
+            connection.release();
         })
     })
 };

@@ -57,7 +57,7 @@ CREATE TABLE `TireWheel`.`Magwheel` (
 
 
 CREATE TABLE `TireWheel`.`History` (
-  `date` DATE NOT NULL,
+  `date` CHAR(10) NOT NULL,
   `product_id` CHAR(5) NOT NULL,
   `quantity` INT NOT NULL,
   `branch_id` INT NOT NULL,
