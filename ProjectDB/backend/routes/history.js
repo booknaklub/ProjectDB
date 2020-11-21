@@ -22,8 +22,8 @@ function connectToDatabase(querySentence,res) {
     })
 };
 
-router.get('/sell', function (req, res) {
-    let querySentence = `SELECT * FROM sell`
+router.get('/history', function (req, res) {
+    let querySentence = `SELECT * FROM history`
     connectToDatabase(querySentence, res);
 });
 
