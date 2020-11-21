@@ -22,9 +22,32 @@ function connectToDatabase(querySentence,res) {
     })
 };
 
+async function sendDataToDatabase(querySentence) {
+    return await connector.getConnection()
+    .then(async conn => {
+            let response = await conn.query(querySentence);
+            delete response.meta;   
+            return response;
+        })
+        .catch(e => {
+            return e;
+        })
+}
+
 router.get('/tire', function (req, res) {
     let querySentence = `SELECT * FROM tire`
     connectToDatabase(querySentence, res);
 });
+
+router.post('/addtire', function (req, res) {
+    const payload = req.body;
+    const querySentence = `INSERT INTO tire VALUES(null, "${payload.BranchID}", "${payload.ProductID}", "${payload.Brand}", "${payload.Series}", 
+    "${payload.TireSize}", "${payload.CompanyNO}", "${payload.Quantity}")`;
+    try {
+        response.push(await sendDataToDatabase(querySentence));
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 module.exports = router;

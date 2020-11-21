@@ -50,14 +50,13 @@
       <button><a href="./purchases.html">Purchases</a></button>
       <button><a href="./inventory.html">Inventory</a></button>
     </div>
-    
     <div class="col-md-8">
       <label>Choose:</label>
       <select class="custom-select d-block w-100" id="country" required="" name="forma" onchange="location = this.value;">
         <option value="addTire.html">ADD Tire</option>
         <option value="addMax.html">ADD Mag</option>
       </select>
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" id="myform" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Brand:</label>
@@ -95,12 +94,45 @@
         </div>
 
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
       </form>
+      <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit_btn">Submit</button>
     </div>
       
-
+<script>
+        const submit_btn = document.querySelector("#submit_btn");
+        const url = "http://localhost:3000/addtire"
+        submit_btn.addEventListener("click", e => {
+        const Payload = {
+          BranchID : myForm.elements[0].value,
+          ProductID : myForm.elements[1].value,
+          Branch : myForm.elements[2].value,
+          Series : myForm.elements[3].value,
+          TireSize : myForm.elements[4].value,
+          CompanyNO : myForm.elements[5].value,
+          Quantity : myForm.elements[6].value
+        };
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-type" : "application/json"
+          },
+          body : JSON.stringify(Payload)
+        })
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      })
+      
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="bootstrap.bundle.min.js"></script>
-        <script src="form-validation.js"></script></body>
+        <script src="form-validation.js"></script>
+
+      </body>
 </html>
