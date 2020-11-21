@@ -4,10 +4,10 @@ var router = express.Router();
 
 var connect = mysql.createConnection(({
     host: "localhost",
-    database: "mydatabase",
+    database: "TireWheel",
     user: "root",
-    password: "123456",
-    port: 4500
+    password: "12345678",
+    port: 3306
 }));
 
 function connectToDatabase(querySentence,res) {
