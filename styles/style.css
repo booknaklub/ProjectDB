@@ -1,0 +1,12 @@
+.nave-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+a:link, a:visited {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
