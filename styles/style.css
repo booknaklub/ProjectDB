@@ -1,12 +1,9 @@
-.nave-bar {
-    display: flex;
-    flex-direction: column;
+table, th, td{
+    padding: 10px;
+    border: 2px solid black;
 }
 
-a:link, a:visited {
-    color: black;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+#result {
+    display: none;
+    margin-top: 10px;
 }

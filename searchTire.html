@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAYAPHOL DB</title>
+    <title>Document</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
     <link rel="stylesheet" href="/ProjectDB-main/styles/style.css">
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body class="bg-light">
-    <div class="container">
+<body>
+    <div>
         <div class="py-5 text-center">
           <img class="d-block mx-auto mb-4">
-          <h2>CHAYAPHOL SHOP DATABASE</h2>
+          <h2>CHAYAPOL SHOP DATABASE</h2>
         </div>
       </div>
       <div class="nav-bar">
@@ -29,8 +30,24 @@
           <option value="searchTire.html">Search Tire</option>
           <option value="searchMax.html">Search Mag</option>
         </select>
-        <form class="" novalidate>
+
           <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Product_ID</label>
+              <input type="text" class="form-control Product-id" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid Quantity is required.
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Branch_ID</label>
+              <input type="text" class="form-control Branch-id" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid Quantity is required.
+              </div>
+            </div>
+            
             <div class="col-md-6 mb-3">
               <label for="firstName">Brand:</label>
               <input type="text" class="form-control brand" id="firstName" placeholder="" value="" required>
@@ -49,7 +66,7 @@
           </div>
   
           <div class="row">
-            <div class="col-md-12 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="firstName">Tire Size</label>
               <input type="text" class="form-control size" id="firstName" placeholder="" value="" required>
               <div class="invalid-feedback">
@@ -57,26 +74,40 @@
               </div>
             </div>
             
-            <!-- <div class="col-md-6 mb-3">
-              <label for="lastName">Quantity</label>
-              <input type="text" class="form-control Quantity" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid Quantity is required.
-              </div>
-            </div> -->
+
           </div>
   
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block btn-submit" type="submit">Search</button>
-        </form>
+          <button class="btn btn-primary btn-lg btn-block btn-submit" id="btn-submit" type="submit">Search</button>
+
       </div>
-      <div class="result">
+      <div id="result">
+        <table class="table-result">
+          <tr>
+            <th>Branch_ID</th>
+            <th>Product_ID</th>
+            <th>Brand</th>
+            <th>Series</th>
+            <th>Tire Size</th>
+            <th>Company NO</th>
+            <th>Quantity</th>
+          </tr>
+          <tr>
+            <td>" "</td>
+            <td>" "</td>
+            <td>" "</td>
+            <td>" "</td>
+            <td>" "</td>
+            <td>" "</td>
+            <td>" "</td>
+          </tr>
+        </table>
       </div>
         
   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="bootstrap.bundle.min.js"></script>
           <script src="form-validation.js"></script>
-    <script src="./js/searchTire.js"></script>
+    <script src="/ProjectDB-main/js/seach.edit.js"></script>
 </body>
 </html>
