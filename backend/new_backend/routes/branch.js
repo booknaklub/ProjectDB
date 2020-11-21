@@ -28,4 +28,8 @@ router.get('/branch', function (req, res) {
     connectToDatabase(querySentence, res);
 });
 
+router.patch('/branch', function (req,res){
+    let querySentence = `UPDATE branch SET`
+})
+
 module.exports = router;
